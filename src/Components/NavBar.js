@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Navbar from 'react-bootstrap/Navbar'
+import {Navbar, Nav} from 'react-bootstrap'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -9,9 +9,13 @@ class NavBar extends React.Component {
 
     render() {
         return <>
-
-            <h1> Test </h1>
-
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="/">LifeTime</Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/day-view">Day View</Nav.Link>
+                    <Nav.Link href="/">Overview</Nav.Link>
+                </Nav>
+            </Navbar>
         </>
     }
 
