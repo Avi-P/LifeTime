@@ -1,0 +1,25 @@
+
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#side {
+    flex: 25%;
+    background-color: #f1f1f1;
+    justify-content: center;
+    padding-top: 35px;
+}
+
+.calendar {
+    padding-bottom: 35px;
+}
+
+#main {
+    flex: 75%;
+    background-color: #e1e6ed;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+}
