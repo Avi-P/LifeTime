@@ -21,7 +21,7 @@ class CalendarView extends React.Component {
             date: new Date(),
             data: [5,6,7,8],
             width: 900,
-            height: 500,
+            height: 550,
             id: "root"
         }
     }
@@ -42,25 +42,26 @@ class CalendarView extends React.Component {
         return (
             <div>
                 <NavBar />
+                    <div id = "container">
+                        <div id = "side">
+                            <center>
+                                <div className="calendar">
+                                    <Calendar onChange={this.onChange} value={this.state.date}/>
+                                </div>
+                                <h3> Day Overview </h3>
+                                <br></br>
+                                <h4> 37.5% - Sleeping</h4>
+                                <h4> 16.7% - Class</h4>
+                                <h4> 16.7% - Eating</h4>
+                                <h4> 29.2% - Work</h4>
+                            </center>
+                        </div>
 
-                <div id = "container">
-                    <div id = "side">
-                        <center>
-                            <div className="calendar">
-                                <Calendar onChange={this.onChange} value={this.state.date}/>
-                            </div>
-                            <h3> Day Overview </h3>
-                        </center>
+                        <div id = "main">
+                                <DonutSummary data={this.state.data} width={this.state.width} height={this.state.height} />
+                        </div>
+
                     </div>
-
-                    <div id = "main">
-                        <center>
-                            <DonutSummary data={this.state.data} width={this.state.width} height={this.state.height} />
-                        </center>
-
-                    </div>
-
-                </div>
             </div>
         )
     }

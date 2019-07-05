@@ -1,14 +1,14 @@
-
-
 #container {
     display: flex;
     flex-wrap: wrap;
+    height: calc(100vh - 56px);
+    flex-direction: row;
 }
 
-
 #side {
+    display: flex;
     flex: 25%;
-    background-color: #f1f1f1;
+    background-color: white;
     justify-content: center;
     padding-top: 35px;
 }
@@ -18,13 +18,10 @@
 }
 
 #main {
+    display: flex;
     flex: 75%;
     background-color: #e1e6ed;
+    align-items: center;
     justify-content: center;
-    /*display: flex;*/
-    /*flex-direction: row;*/
 }
 
-#visual {
-    justify-content: center;
-}
