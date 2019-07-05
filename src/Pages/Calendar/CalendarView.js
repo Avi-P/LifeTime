@@ -20,8 +20,8 @@ class CalendarView extends React.Component {
         this.state = {
             date: new Date(),
             data: [5,6,7,8],
-            width: 100,
-            height: 100,
+            width: 900,
+            height: 500,
             id: "root"
         }
     }
@@ -54,8 +54,10 @@ class CalendarView extends React.Component {
                     </div>
 
                     <div id = "main">
-                        {/*<DonutSummary data={this.state.data} width={this.state.width} height={this.state.height} innerRadius={60}*/}
-                                      {/*outerRadius={100} />*/}
+                        <center>
+                            <DonutSummary data={this.state.data} width={this.state.width} height={this.state.height} />
+                        </center>
+
                     </div>
 
                 </div>

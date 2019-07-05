@@ -20,6 +20,11 @@
 #main {
     flex: 75%;
     background-color: #e1e6ed;
+    justify-content: center;
     /*display: flex;*/
     /*flex-direction: row;*/
+}
+
+#visual {
+    justify-content: center;
 }
