@@ -11,6 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 
+/* Entry point of the web app */
 ReactDOM.render(
     <BrowserRouter>
         <App />

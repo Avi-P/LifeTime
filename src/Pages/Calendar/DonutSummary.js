@@ -3,11 +3,22 @@ import React from "react"
 import { scaleOrdinal } from 'd3-scale';
 import { arc as d3Arc, pie as d3Pie } from 'd3-shape';
 
+/* Color map for what color is used for what activity */
+const colorMap = new Map([["Sleep", '#6b486b'],
+                                    ["Food", '#d0743c'],
+                                    ["Work", '#8a89a6'],
+                                    ["Class", '#3c6fc2'],
+                                    ["Exercise", '#A0232C']
+                                ]);
+
+/* Donut chart class */
 class DonutSummary extends React.Component{
 
+    /* Contains state variables */
     constructor(props) {
         super(props);
 
+        /* Data is null and not from props for proper source of truth */
         this.state = {
             data: [],
             width: this.props.width,
@@ -25,6 +36,7 @@ class DonutSummary extends React.Component{
         };
     }
 
+    /* Used to generate random data. Function is for testing purpose, not used in production */
     generateRandomData() {
         let data = [];
         let activity = ["Sleep", "Work", "Class", "Food", "Exercise"];
@@ -36,94 +48,120 @@ class DonutSummary extends React.Component{
             let numTwo = Math.floor(Math.random() * 24 - num) + num;
             startNumber = numTwo;
 
-            let numThree =  Math.floor(Math.random() * 4);
+            let obj = {
+                time: (numTwo - num),
+                activity: activity[i]
+            };
 
-            let obj = '{"time_in" :' + num.toString() + ', "time_out" :' + numTwo.toString() + ', "name" : "' + activity[i] + '"}';
-
-            data.push(JSON.parse(obj));
+            data.push(obj);
         }
 
         return data;
     }
 
-    componentDidMount() {
+    /* Makes color scale from the activities in the data */
+    makeColorScale(data) {
+        let colorSeenOrder = new Set();
 
-        // data.push(JSON.parse('{"time_in" : 0, "time_out" : 9, "name" : "Sleep"}'));
-        // data.push(JSON.parse('{"time_in" : 9, "time_out" : 12, "name" : "Class"}'));
-        // data.push(JSON.parse('{"time_in" : 12, "time_out" : 14, "name" : "Eating"}'));
-        // data.push(JSON.parse('{"time_in" : 14, "time_out" : 15, "name" : "Class"}'));
-        // data.push(JSON.parse('{"time_in" : 15, "time_out" : 19, "name" : "Work"}'));
-        // data.push(JSON.parse('{"time_in" : 19, "time_out" : 21, "name" : "Eating"}'));
-        // data.push(JSON.parse('{"time_in" : 21, "time_out" : 24, "name" : "Work"}'));
+        /* Since set can be used to track order of entry, we iterate through adding activity.
+         * The coloring of slice goes by order.
+         * */
+        for (let i = 0; i < data.length; i++) {
+            colorSeenOrder.add(colorMap.get(data[i]["activity"]));
+        }
+
+        console.log(Array.from(colorSeenOrder));
+
+        return Array.from(colorSeenOrder);
+    }
+
+    /* Called when component is mounted. */
+    componentDidMount() {
+        let color = scaleOrdinal().range(this.makeColorScale(this.props.data));
 
         this.setState({
-            data: this.generateRandomData()
+            data: this.props.data,
+            colors: color
         })
     }
 
+    /* Called when new props are passed in */
     componentDidUpdate(prevProps) {
         if (this.shouldUpdate(prevProps, this.props)) {
            this.update();
         }
     }
 
+    /* Checks if previous props data is the same as the new data */
     shouldUpdate(prevProps, props) {
-        if (prevProps.date !== props.date) {
+        if (prevProps.data !== props.data) {
             return true;
         }
 
         return false;
     }
 
+    /* Called if state has to be updated due to new props */
     update() {
+        /* Creates new color scale */
+        let color = scaleOrdinal().range(this.makeColorScale(this.props.data));
+
         this.setState({
-            data: this.generateRandomData(),
-        });
+            data: this.props.data,
+            colors: color
+        })
     }
 
+    /* Computes mid angle */
     midAngle(d){
         return d.startAngle + (d.endAngle - d.startAngle)/2;
     }
 
+    /* Code to render the chart */
     render() {
-        let dataCleaned = [];
+        let dataCleaned = this.state.data;
 
-        for (let i = 0; i < this.state.data.length; i++) {
-            let cleaned = '{"time" :' + (this.state.data[i]["time_out"] - this.state.data[i]["time_in"])
-                            + ', "activity": "' + this.state.data[i]["name"] + '"}';
-
-            dataCleaned.push(JSON.parse(cleaned));
+        /* Handles case where the data is empty */
+        if (dataCleaned === null) {
+            return (<br></br>);
         }
 
+        /* Used for colored slices of donut chart */
         const arc = d3Arc()
             .outerRadius(this.state.radius - 10)
             .innerRadius(this.state.radius - 100)
             .padAngle(0.01);
 
+        /* Used for radius where text branches off from */
         let outerArc = d3Arc()
             .innerRadius(this.state.radius)
             .outerRadius(this.state.radius);
 
+        /* Pie is used to transform the data for SVG rendering */
         const pie = d3Pie()
             .sort(null)
             .value(function(d) { return d.time; });
 
+        /* Transforms data */
         const data = pie(dataCleaned);
 
         return (
                 <svg id = "visual" width={this.state.width} height={this.state.height}>
                     <g transform={`translate(${this.state.width / 2}, ${this.state.height / 2})`}>
+                        /* Used to create text and slice elements for all the data pieces */
                         {data.map(d => {
                             let SVGpos = outerArc.centroid(d);
                             let textPos = outerArc.centroid(d);
 
+                            /* Computes position of slice and text */
                             SVGpos[0] = this.state.radius * .90 * (this.midAngle(d) < Math.PI ? 1 : -1);
                             textPos[0] = this.state.radius * (this.midAngle(d) < Math.PI ? 1 : -1);
 
                             let retString = arc.centroid(d)+ " " + outerArc.centroid(d) + " " + textPos;
 
+                            /* Returns code that is used for rendering the donut chart, lines to text, and text*/
                             return (
-                                <g className="arc" key={`a${d.data.activity}`}>
+                                <g className="arc" key={`a${this.props.date.toString() + d.data.time}`}>
                                     <path d={arc(d)} fill={this.state.colors(d.data.activity)} />
                                     <polyline points={retString} fill="none" stroke="black" strokeWidth= "1px" opacity = ".3"/>
 

@@ -10,7 +10,7 @@
     flex: 25%;
     background-color: white;
     justify-content: center;
-    padding-top: 35px;
+    padding-top: 10px;
 }
 
 .calendar {
@@ -24,4 +24,3 @@
     align-items: center;
     justify-content: center;
 }
-

@@ -2,11 +2,10 @@ import React from 'react';
 
 import {Navbar, Nav} from 'react-bootstrap'
 
+//Navigation Bar
 class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
+    //Code for NavBar, relies on React Bootstrap
     render() {
         return <>
             <Navbar bg="dark" variant="dark">
@@ -22,4 +21,3 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
-

@@ -3,8 +3,12 @@ class DayInfoInterface {
         const URL = "http://localhost:8080/api/LifeTime/getInformation";
 
         const data = {
-            date: date
+            "month": date.getMonth().toString(),
+            "day" : date.getDate().toString(),
+            "year" : date.getFullYear().toString()
         };
+
+        console.log(data);
 
         fetch(URL, {
             credentials: 'same-origin',
