@@ -12,7 +12,7 @@ class NavBar extends React.Component {
                 <Navbar.Brand href="/">LifeTime</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/day-view">Day View</Nav.Link>
-                    <Nav.Link href="/">Overview</Nav.Link>
+                    <Nav.Link href="/overview">Overview</Nav.Link>
                 </Nav>
             </Navbar>
         </>

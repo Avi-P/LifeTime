@@ -2,6 +2,8 @@ import React from "react"
 
 import { scaleOrdinal } from 'd3-scale';
 import { arc as d3Arc, pie as d3Pie } from 'd3-shape';
+import * as d3 from "d3";
+import Colors from "../../Components/Colors";
 
 /* Color map for what color is used for what activity */
 const colorMap = new Map([["Sleep", '#6b486b'],
@@ -24,15 +26,9 @@ class DonutSummary extends React.Component{
             width: this.props.width,
             height: this.props.height,
             radius: Math.min(this.props.width, this.props.height) / 2.5,
-            colors: scaleOrdinal().range([
-                                                '#3c6fc2',
-                                                '#8a89a6',
-                                                '#7b6888',
-                                                '#6b486b',
-                                                '#a05d56',
-                                                '#d0743c',
-                                                '#ff8c00',
-                                            ]),
+            colors: d3.scaleOrdinal()
+                        .domain(Colors.getActivities())
+                        .range(Colors.getColors())
         };
     }
 
@@ -59,29 +55,10 @@ class DonutSummary extends React.Component{
         return data;
     }
 
-    /* Makes color scale from the activities in the data */
-    makeColorScale(data) {
-        let colorSeenOrder = new Set();
-
-        /* Since set can be used to track order of entry, we iterate through adding activity.
-         * The coloring of slice goes by order.
-         * */
-        for (let i = 0; i < data.length; i++) {
-            colorSeenOrder.add(colorMap.get(data[i]["activity"]));
-        }
-
-        console.log(Array.from(colorSeenOrder));
-
-        return Array.from(colorSeenOrder);
-    }
-
     /* Called when component is mounted. */
     componentDidMount() {
-        let color = scaleOrdinal().range(this.makeColorScale(this.props.data));
-
         this.setState({
             data: this.props.data,
-            colors: color
         })
     }
 
@@ -103,12 +80,8 @@ class DonutSummary extends React.Component{
 
     /* Called if state has to be updated due to new props */
     update() {
-        /* Creates new color scale */
-        let color = scaleOrdinal().range(this.makeColorScale(this.props.data));
-
         this.setState({
             data: this.props.data,
-            colors: color
         })
     }
 

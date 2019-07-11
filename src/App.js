@@ -4,6 +4,7 @@ import './App.css';
 
 import Home from "./Pages/Home/Home"
 import CalendarView from "./Pages/Calendar/CalendarView"
+import Overview from "./Pages/Overview/Overview"
 
 /* Contains the routing information for the various sites */
 function App() {
@@ -13,6 +14,7 @@ function App() {
               <div>
                   <Route path="/" exact component={Home} />
                   <Route path="/day-view" exact component={CalendarView} />
+                  <Route path="/overview" exact component = {Overview} />
               </div>
           </Router>
       </>

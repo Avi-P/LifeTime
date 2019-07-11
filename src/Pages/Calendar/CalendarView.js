@@ -30,9 +30,9 @@ class CalendarView extends React.Component {
         const URL = "http://localhost:8080/api/LifeTime/getInformation";
 
         /* Used to handle unique key requirement in nodejs. If this code is not there, component overlay happens */
-        this.setState({
-            data: null
-        });
+        // this.setState({
+        //     data: null
+        // });
 
         /* Scheme of data being sent to backend */
         const data = {
@@ -75,6 +75,10 @@ class CalendarView extends React.Component {
                     activity: activityMap[i]["activity"]
                 });
             }
+
+            that.setState({
+                data: null
+            });
 
             that.setState({
                 data: data
