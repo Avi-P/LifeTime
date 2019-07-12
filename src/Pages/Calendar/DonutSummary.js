@@ -1,17 +1,8 @@
 import React from "react"
 
-import { scaleOrdinal } from 'd3-scale';
 import { arc as d3Arc, pie as d3Pie } from 'd3-shape';
 import * as d3 from "d3";
 import Colors from "../../Components/Colors";
-
-/* Color map for what color is used for what activity */
-const colorMap = new Map([["Sleep", '#6b486b'],
-                                    ["Food", '#d0743c'],
-                                    ["Work", '#8a89a6'],
-                                    ["Class", '#3c6fc2'],
-                                    ["Exercise", '#A0232C']
-                                ]);
 
 /* Donut chart class */
 class DonutSummary extends React.Component{

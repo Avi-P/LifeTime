@@ -84,5 +84,30 @@ app.post('/api/LifeTime/getInformation', async function(req, res, next) {
     return;
 });
 
+/* Route to get information out of the DB */
+app.post('/api/LifeTime/getDataRange', async function(req, res, next) {
+
+    const {dateOneYear, dateOneMonth, dateOneDay, dateTwoYear, dateTwoMonth, dateTwoDay} = req.body;
+
+    const firstDate = new Date(dateOneYear, dateOneMonth, dateOneDay);
+
+    const secondDate = new Date(dateTwoYear, dateTwoMonth, dateTwoDay);
+
+    console.log(firstDate + "--" + secondDate);
+
+    /* Finds the data based on date and returns it */
+    DayInfo.find({ date: {$lt: secondDate, $gte: firstDate}}, function(err, ans) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            //console.log(ans);
+            res.send(ans);
+        }
+    });
+
+    return;
+});
+
 /* Server listens on port 8080 */
 app.listen(8080);
