@@ -1,5 +1,5 @@
 import React from "react"
-import DatePicker from 'react-date-picker';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import StackedAreaChart from "./StackedAreaChart"
 
 import Colors from "../../Components/Colors"
@@ -7,14 +7,14 @@ import * as d3 from "d3";
 
 import "./MonthOverview.css";
 
-class MonthOverview extends React.Component {
+class RangeOverview extends React.Component {
     constructor(props) {
         super(props);
 
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            date: new Date(),
+            date: [new Date(), new Date()],
             data: null,
             map: new Map()
         }
@@ -25,21 +25,17 @@ class MonthOverview extends React.Component {
             return;
         }
 
-        this.setState({
-            date: date
-        });
+        console.log(date);
+
+        this.setState({ date })
 
         let now = date;
 
         //console.log(now);
 
-        const firstDayofCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        console.log(this.state.date[0] + " - " + this.state.date[1]);
 
-        const lastDayofCurrentMonth = new Date(now.getFullYear(), now.getMonth()+1, 0);
-
-        console.log(firstDayofCurrentMonth + " - " + lastDayofCurrentMonth);
-
-        this.fetchRangeData(firstDayofCurrentMonth, lastDayofCurrentMonth);
+        this.fetchRangeData(this.state.date[0], this.state.date[1]);
     }
 
     fetchRangeData(one, two) {
@@ -163,7 +159,7 @@ class MonthOverview extends React.Component {
                         <div className="swatch" style={{background:  colorMap(Colors.getActivities()[i])}} ></div>
 
                         {Colors.getActivities()[i] + " "
-                            + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100).toFixed(2).toString().toString() + "%"}
+                        + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100).toFixed(2).toString().toString() + "%"}
                     </div>
                 </div>
             );
@@ -179,7 +175,10 @@ class MonthOverview extends React.Component {
     render() {
         return (
             <div>
-                <DatePicker onChange={this.onChange} value = {this.state.date}/>
+                <DateRangePicker
+                    onChange={this.onChange}
+                    value={this.state.date}
+                />
                 <StackedAreaChart data={this.state.data}/>
                 {this.buildSwatches()}
             </div>
@@ -187,4 +186,4 @@ class MonthOverview extends React.Component {
     }
 }
 
-export default MonthOverview;
+export default RangeOverview;

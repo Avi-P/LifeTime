@@ -4,6 +4,7 @@ import {Tabs, Tab} from "react-bootstrap"
 
 import NavBar from "../../Components/NavBar"
 import MonthOverview from "./MonthOverview"
+import RangeOverview from "./RangeOverview"
 
 class Overview extends React.Component {
 
@@ -16,7 +17,7 @@ class Overview extends React.Component {
                        <MonthOverview/>
                    </Tab>
                    <Tab eventKey="Date_Range" title="Date Range">
-
+                        <RangeOverview/>
                    </Tab>
                </Tabs>
            </div>
