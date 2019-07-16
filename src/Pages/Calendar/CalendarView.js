@@ -29,11 +29,6 @@ class CalendarView extends React.Component {
     fetchDayData(date){
         const URL = "http://localhost:8080/api/LifeTime/getInformation";
 
-        /* Used to handle unique key requirement in nodejs. If this code is not there, component overlay happens */
-        // this.setState({
-        //     data: null
-        // });
-
         /* Scheme of data being sent to backend */
         const data = {
             "year" : date.getFullYear().toString(),
@@ -76,10 +71,16 @@ class CalendarView extends React.Component {
                 });
             }
 
+            /* Sets it null so react removes the whole chart
+             * before we put the new chart. If not done, overlaying of
+             * SVG components happen due to React and its key detection
+             * for removal of components
+             */
             that.setState({
                 data: null
             });
 
+            /* Sets data, which calls a rerender with new data */
             that.setState({
                 data: data
             });
@@ -88,12 +89,6 @@ class CalendarView extends React.Component {
 
     /* Called upon when component is displayed. Used to get for current date */
     componentDidMount() {
-        // data.push(JSON.parse('{"time_in" : 0, "time_out" : 12, "name" : "Sleep"}'));
-        // data.push(JSON.parse('{"time_in" : 12, "time_out" : 13, "name" : "Class"}'));
-        // data.push(JSON.parse('{"time_in" : 13, "time_out" : 14, "name" : "Eating"}'));
-        // data.push(JSON.parse('{"time_in" : 14, "time_out" : 19, "name" : "Class"}'));
-        // data.push(JSON.parse('{"time_in" : 19, "time_out" : 24, "name" : "Work"}'));
-
         this.fetchDayData(new Date());
     }
 
@@ -154,10 +149,12 @@ class CalendarView extends React.Component {
                 }
             }
 
+            //Formatted string to display
             let pushString = ""+ ((activity.get(max) / total) * 100).toFixed(2).toString() + "% - " + max;
 
             list.push(<h5> {pushString} </h5>)
 
+            //Removes the key so it wont be found the next time we are finding the max
             activity.delete(max);
         }
 

@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d50dc06-31f6-4123-ad9b-d55458e5dc18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-src/DayInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-src/DayInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Colors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DayInfoInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DayInfoInterface.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/Overview.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/Overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/Overview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +25,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-110">
+              <caret line="122" column="38" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server-src/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="103">
+              <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -28,15 +60,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-166">
-              <caret line="148" column="20" lean-forward="true" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+            <state relative-caret-position="3080">
+              <caret line="210" selection-start-line="209" selection-end-line="210" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="n#!!block;n#constructor#0;n#MonthOverview#0" />
-                <element signature="n#!!block;n#onChange#0;n#MonthOverview#0" />
-                <element signature="n#!!block;n#fetchRangeData#0;n#MonthOverview#0" />
-                <element signature="n#!!block;n#componentDidMount#0;n#MonthOverview#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Pages/Overview/Overview.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -44,33 +81,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+            <state relative-caret-position="264">
+              <caret line="67" column="49" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="49" />
               <folding>
-                <element signature="n#RangeOverview#0" />
-                <element signature="n#!!block;n#constructor#0;n#MonthOverview#0" />
-                <element signature="n#!!block;n#fetchRangeData#0;n#MonthOverview#0" />
-                <element signature="n#!!block;n#componentDidMount#0;n#MonthOverview#0" />
-                <element signature="n#!!block;n#buildSwatches#0;n#MonthOverview#0" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -90,6 +105,7 @@
       <find>console</find>
       <find>three</find>
       <find>//</find>
+      <find>onchange</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,22 +117,23 @@
         <option value="$PROJECT_DIR$/src/Home.js" />
         <option value="$PROJECT_DIR$/src/Pages/Calendar/Calendar.js" />
         <option value="$PROJECT_DIR$/src/Pages/Calendar/data.js" />
-        <option value="$PROJECT_DIR$/server-src/DayInfo.js" />
-        <option value="$PROJECT_DIR$/src/Components/DayInfoInterface.js" />
         <option value="$PROJECT_DIR$/src/Pages/Home/Home.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css" />
-        <option value="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css" />
+        <option value="$PROJECT_DIR$/src/Pages/Overview/Overview.css" />
+        <option value="$PROJECT_DIR$/server-src/DayInfo.js" />
+        <option value="$PROJECT_DIR$/src/Components/Colors.js" />
+        <option value="$PROJECT_DIR$/src/Components/DayInfoInterface.js" />
         <option value="$PROJECT_DIR$/src/Components/NavBar.js" />
+        <option value="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js" />
+        <option value="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css" />
         <option value="$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js" />
+        <option value="$PROJECT_DIR$/src/Pages/Overview/Overview.js" />
+        <option value="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" />
+        <option value="$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js" />
         <option value="$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js" />
         <option value="$PROJECT_DIR$/server-src/server.js" />
-        <option value="$PROJECT_DIR$/src/Components/Colors.js" />
-        <option value="$PROJECT_DIR$/src/Pages/Overview/Overview.js" />
-        <option value="$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js" />
-        <option value="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" />
-        <option value="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css" />
       </list>
     </option>
   </component>
@@ -192,7 +209,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563237709125" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563252564802" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../video-picture-analysis" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -202,6 +219,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -243,18 +261,18 @@
       <updated>1562035282196</updated>
       <workItem from="1562035283667" duration="50776000" />
       <workItem from="1562367112376" duration="39659000" />
-      <workItem from="1562630263861" duration="68621000" />
+      <workItem from="1562630263861" duration="76839000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159056000" />
+    <option name="totallyTimeSpent" value="167274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1695946" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2195946" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -263,7 +281,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992636" weight="0.27859238" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4992636" visible="true" weight="0.27859238" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -273,7 +291,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073636" side_tool="true" weight="0.16468254" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49932432" visible="true" weight="0.18914956" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49932432" weight="0.18914956" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -361,37 +379,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server-src/DayInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/DayInfoInterface.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/NavBar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+        <state relative-caret-position="274">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/Colors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="330">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server-src/DayInfo.js">
+    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="264">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -402,49 +427,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Colors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#1413#1555#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-src/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js">
+    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="156" column="90" selection-start-line="156" selection-start-column="68" selection-end-line="156" selection-end-column="90" />
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="n#!!block;n#componentDidMount#0;n#CalendarView#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pages/Overview/Overview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="186">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/src/Components/Colors.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/Pages/Overview/Overview.css</node>
+            <node x="" y="">$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js#Colors#235;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#DateRangePicker#140;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#Overview.css#274;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#React#7;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#StackedAreaChart#185;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#_datepicker.css#86;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#d3#33;C:/Users/avina/Documents/Documents/LifeTime/src/Pages/Overview/RangeOverview.js#initialize.js#53;</node>
+            <node x="" y="">$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/react-dates/lib/css/_datepicker.css</node>
+            <node x="" y="">DateRangePicker;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/d3/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/react/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/react-dates/initialize.js</node>
+            <node x="" y="">$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8218487394957983" x="348.0" y="287.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
     </entry>
@@ -455,55 +482,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2266">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="88">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pages/Overview/Overview.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166">
-          <caret line="148" column="20" lean-forward="true" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+        <state relative-caret-position="3080">
+          <caret line="210" selection-start-line="209" selection-end-line="210" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#MonthOverview#0" />
-            <element signature="n#!!block;n#onChange#0;n#MonthOverview#0" />
-            <element signature="n#!!block;n#fetchRangeData#0;n#MonthOverview#0" />
-            <element signature="n#!!block;n#componentDidMount#0;n#MonthOverview#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        <state relative-caret-position="264">
+          <caret line="67" column="49" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="49" />
           <folding>
-            <element signature="n#RangeOverview#0" />
-            <element signature="n#!!block;n#constructor#0;n#MonthOverview#0" />
-            <element signature="n#!!block;n#fetchRangeData#0;n#MonthOverview#0" />
-            <element signature="n#!!block;n#componentDidMount#0;n#MonthOverview#0" />
-            <element signature="n#!!block;n#buildSwatches#0;n#MonthOverview#0" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css">
+    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="-110">
+          <caret line="122" column="38" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pages/Overview/MonthOverview.css">
+    <entry file="file://$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="32">
+          <caret line="60" column="47" lean-forward="true" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-src/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
         </state>
       </provider>
     </entry>

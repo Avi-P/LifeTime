@@ -3,52 +3,38 @@ import * as d3 from "d3";
 
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-import {DateRangePicker, SingleDatePicker} from 'react-dates';
+import {DateRangePicker} from 'react-dates';
 
 import StackedAreaChart from "./StackedAreaChart"
 import Colors from "../../Components/Colors"
 
-import "./MonthOverview.css";
+import "./Overview.css";
 
+/* Page for range of date overview */
 class RangeOverview extends React.Component {
+    //Constructor
     constructor(props) {
         super(props);
-
-        this.onChange = this.onChange.bind(this);
 
         this.state = {
             startDate: null,
             endDate: null,
             focusedInput: null,
-            date: [new Date(), new Date()],
             data: null,
             map: new Map()
         }
     }
 
-    onChange(date) {
-        if (date === null) {
-            return;
-        }
-
-        this.setState({ date })
-
-        let now = date;
-
-        console.log(this.state.date[0] + " - " + this.state.date[1]);
-
-        this.fetchRangeData(this.state.date[0], this.state.date[1]);
-    }
-
+    /* Method that performs fetch to API for data based on two dates*/
     fetchRangeData(one, two) {
+        //Handles case where one the dates are null */
         if (one === null || two === null) {
             return;
         }
 
+        /* Makes first and two dates since event value is not a date object */
         one = new Date(one);
         two = new Date(two);
-
-        console.log(one + "," + two);
 
         const URL = "http://localhost:8080/api/LifeTime/getDataRange";
 
@@ -87,49 +73,69 @@ class RangeOverview extends React.Component {
             }
 
             let activities = Colors.getActivities();
-
             let trackMap = new Map();
 
+            /* Initializes map with all the activities */
             for (let k = 0; k < activities.length; k++) {
                 trackMap.set(activities[k], 0);
             }
 
+            /* Creates a entry in the map to store the total time of all the activities */
             trackMap.set("Total", 0);
 
             let data = [];
 
+            /* Loop used to format data into a specific order for the D3 function
+             * and to calculate the total time spent for all the activities
+             */
             for (let i = 0; i < transformedRes.length; i++) {
                 let {date, activityMap} = transformedRes[i];
                 let map = new Map();
 
+                /* Instantiates map with all keys */
                 for (let k = 0; k < activities.length; k++) {
                     map.set(activities[k], 0);
                 }
 
+                /* Loops through data from server and tracks how long per day a activity was done
+                 * and how long per week the activity was done and totals up the total time of all the activities
+                 */
                 for (let k = 0; k < activityMap.length; k++) {
 
+                    /* Storing total activity time for the day */
                     map.set(activityMap[k]["activity"],
                         map.get(activityMap[k]["activity"]) + (activityMap[k]["time_out"] - activityMap[k]["time_in"]));
 
+                    /* Storing total activity time for the week */
                     trackMap.set(activityMap[k]["activity"],
                         trackMap.get(activityMap[k]["activity"]) + map.get(activityMap[k]["activity"]));
 
+                    /* Storing total activity time for all activities*/
                     trackMap.set("Total", trackMap.get("Total") + map.get(activityMap[k]["activity"]))
                 }
 
+                //JSON object with date
                 let obj = {"date" : date};
 
+                //Adds all the activities in the specific order to the JSON object
                 for (let k = 0; k < activities.length; k++) {
                     obj[activities[k]] = map.get(activities[k]);
                 }
 
+                //Pushes into array that will be used by D3
                 data.push(obj);
             }
 
+            /* Sets it null so react removes the whole chart
+             * before we put the new chart. If not done, overlaying of
+             * SVG components happen due to React and its key detection
+             * for removal of components
+             */
             that.setState({
                 data: null
             });
 
+            /* Sets state data to data for D3 usage and state map to map */
             that.setState({
                 data: data,
                 map: trackMap
@@ -137,6 +143,7 @@ class RangeOverview extends React.Component {
         });
     }
 
+    /* When page first renders, makes the chart based on the current month */
     componentDidMount() {
         let now = new Date();
 
@@ -144,25 +151,28 @@ class RangeOverview extends React.Component {
 
         const lastDayofCurrentMonth = new Date(now.getFullYear(), now.getMonth()+1, 0);
 
-        console.log(firstDayofCurrentMonth + " - " + lastDayofCurrentMonth);
-
         this.fetchRangeData(firstDayofCurrentMonth, lastDayofCurrentMonth);
     }
 
+    /* Builds color swatches for the legend of the chart */
     buildSwatches() {
+        /* Handles null case */
         if (this.state.map == null) {
             return;
         }
 
         let data = [];
 
+        /* Makes color map */
         let colorMap = d3.scaleOrdinal()
             .domain(Colors.getActivities())
             .range(Colors.getColors());
 
+        /* Makes the color swatches HTML code for all the activities */
         for (let i = 0; i < Colors.getActivities().length; i++) {
             let color = "background:" + colorMap(Colors.getActivities()[i]) + ";";
 
+            /* HTML code for the swatch created */
             let item = (
                 <div>
                     <div className="item">
@@ -175,13 +185,12 @@ class RangeOverview extends React.Component {
             );
 
             data.push(item);
-
         }
 
         return data;
-
     }
 
+    /* Code used for rendering the page */
     render() {
         return (
             <div>
@@ -192,7 +201,7 @@ class RangeOverview extends React.Component {
                         startDate={this.state.startDate}
                         endDate={this.state.endDate}
                         onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate });
-                            this.fetchRangeData(startDate, endDate);}}
+                                                                    this.fetchRangeData(startDate, endDate);}}
                         focusedInput={this.state.focusedInput}
                         onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
                     />

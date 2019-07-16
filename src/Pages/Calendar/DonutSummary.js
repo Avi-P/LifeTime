@@ -23,29 +23,6 @@ class DonutSummary extends React.Component{
         };
     }
 
-    /* Used to generate random data. Function is for testing purpose, not used in production */
-    generateRandomData() {
-        let data = [];
-        let activity = ["Sleep", "Work", "Class", "Food", "Exercise"];
-        let startNumber = 0;
-        let rand = Math.floor(Math.random() * 5) + 1;
-
-        for(let i = 0; i < rand; i++) {
-            let num = startNumber;
-            let numTwo = Math.floor(Math.random() * 24 - num) + num;
-            startNumber = numTwo;
-
-            let obj = {
-                time: (numTwo - num),
-                activity: activity[i]
-            };
-
-            data.push(obj);
-        }
-
-        return data;
-    }
-
     /* Called when component is mounted. */
     componentDidMount() {
         this.setState({
@@ -112,6 +89,7 @@ class DonutSummary extends React.Component{
         return (
                 <svg id = "visual" width={this.state.width} height={this.state.height}>
                     <g transform={`translate(${this.state.width / 2}, ${this.state.height / 2})`}>
+
                         /* Used to create text and slice elements for all the data pieces */
                         {data.map(d => {
                             let SVGpos = outerArc.centroid(d);

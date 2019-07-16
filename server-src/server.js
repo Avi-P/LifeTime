@@ -9,6 +9,7 @@ const cors = require('cors');
 const app = express();
 
 /* Middleware */
+/* Used to allow CORS policy, requests from same origin */
 app.use(cors({origin: 'http://localhost:3000'}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -59,17 +60,19 @@ app.post('/api/LifeTime/postInformation', async function(req, res, next) {
     /* Saving into DB */
     DayInfoVar.save();
 
-    console.log("Recorded");
+    console.log("Recorded " + newDate);
 
     res.send('Recorded');
 
     return;
 });
 
-/* Route to get information out of the DB */
+/* Route to get information out of the DB for a specific day*/
 app.post('/api/LifeTime/getInformation', async function(req, res, next) {
 
     const {year, month, day} = req.body;
+
+    console.log("Information Single: " + new Date("" + year + "/" + month + "/" + day));
 
     /* Finds the data based on date and returns it */
     DayInfo.find({ date: new Date("" + year + "/" + month + "/" + day) }, function(err, ans) {
@@ -84,16 +87,16 @@ app.post('/api/LifeTime/getInformation', async function(req, res, next) {
     return;
 });
 
-/* Route to get information out of the DB */
+/* Route to get information out of the DB based on a range of data*/
 app.post('/api/LifeTime/getDataRange', async function(req, res, next) {
 
     const {dateOneYear, dateOneMonth, dateOneDay, dateTwoYear, dateTwoMonth, dateTwoDay} = req.body;
 
-    const firstDate = new Date(dateOneYear, dateOneMonth, dateOneDay);
+    const firstDate = new Date(dateOneYear, dateOneMonth, dateOneDay, 0, 0);
 
-    const secondDate = new Date(dateTwoYear, dateTwoMonth, dateTwoDay);
+    const secondDate = new Date(dateTwoYear, dateTwoMonth, dateTwoDay, 23, 59);
 
-    console.log(firstDate + "--" + secondDate);
+    console.log("Information Range: " + firstDate + " - " + secondDate);
 
     /* Finds the data based on date and returns it */
     DayInfo.find({ date: {$lt: secondDate, $gte: firstDate}}, function(err, ans) {

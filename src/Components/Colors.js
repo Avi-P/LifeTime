@@ -1,8 +1,12 @@
+/* Class to stores activites and their colors. Used by all of the front-end */
 class Colors {
+
+    /* Returns a list of activities */
     getActivities() {
         return ["Sleep", "Work", "Food", "Exercise", "Class", "Entertainment", "Friends"];
     }
 
+    /* Returns a list of color in order to correspond to activities */
     getColors() {
         return(['#6b486b',
             '#d0743c',

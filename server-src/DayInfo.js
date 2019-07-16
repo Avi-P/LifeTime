@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+/* Schema to store information about activities */
 const DayInfo = new mongoose.Schema({
     date: {
         type: Date,

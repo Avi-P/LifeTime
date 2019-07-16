@@ -6,6 +6,7 @@ import NavBar from "../../Components/NavBar"
 import MonthOverview from "./MonthOverview"
 import RangeOverview from "./RangeOverview"
 
+/* Page that contains the tabs for month overview and range of date overview */
 class Overview extends React.Component {
 
     render() {
@@ -23,7 +24,6 @@ class Overview extends React.Component {
            </div>
        )
     }
-
 }
 
 export default Overview;
