@@ -1,9 +1,13 @@
 import React from "react"
-import DatePicker from 'react-date-picker';
 import StackedAreaChart from "./StackedAreaChart"
 
 import Colors from "../../Components/Colors"
 import * as d3 from "d3";
+
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+
+import {SingleDatePicker} from 'react-dates';
 
 import "./MonthOverview.css";
 
@@ -14,9 +18,10 @@ class MonthOverview extends React.Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            date: new Date(),
+            date: null,
             data: null,
-            map: new Map()
+            map: new Map(),
+            focusedInput: null,
         }
     }
 
@@ -29,9 +34,7 @@ class MonthOverview extends React.Component {
             date: date
         });
 
-        let now = date;
-
-        //console.log(now);
+        let now = new Date(date);
 
         const firstDayofCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
 
@@ -179,9 +182,21 @@ class MonthOverview extends React.Component {
     render() {
         return (
             <div>
-                <DatePicker onChange={this.onChange} value = {this.state.date}/>
+                <div className = "centered">
+                    <SingleDatePicker
+                        date={this.state.date} // momentPropTypes.momentObj or null
+                        isOutsideRange= {() => false}
+                        onDateChange={this.onChange} // PropTypes.func.isRequired
+                        focused={this.state.focused} // PropTypes.bool
+                        onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                        id="your_unique_id" // PropTypes.string.isRequired,
+                    />
+                </div>
+
                 <StackedAreaChart data={this.state.data}/>
-                {this.buildSwatches()}
+                <div className = "formatSwatches">
+                    {this.buildSwatches()}
+                </div>
             </div>
         )
     }

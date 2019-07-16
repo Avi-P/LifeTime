@@ -3,10 +3,25 @@
     display: flex;
     align-items: center;
     padding-bottom: 1px;
+    padding-right: 10px;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10pt;
 }
 
 .swatch {
     width: 20px;
     height: 20px;
     margin: 0 5px 0 0;
+}
+
+.formatSwatches {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 30pt;
 }

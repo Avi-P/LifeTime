@@ -1,9 +1,12 @@
 import React from "react"
-import DateRangePicker from '@wojtekmaj/react-daterange-picker';
-import StackedAreaChart from "./StackedAreaChart"
-
-import Colors from "../../Components/Colors"
 import * as d3 from "d3";
+
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import {DateRangePicker, SingleDatePicker} from 'react-dates';
+
+import StackedAreaChart from "./StackedAreaChart"
+import Colors from "../../Components/Colors"
 
 import "./MonthOverview.css";
 
@@ -14,6 +17,9 @@ class RangeOverview extends React.Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
+            startDate: null,
+            endDate: null,
+            focusedInput: null,
             date: [new Date(), new Date()],
             data: null,
             map: new Map()
@@ -25,13 +31,9 @@ class RangeOverview extends React.Component {
             return;
         }
 
-        console.log(date);
-
         this.setState({ date })
 
         let now = date;
-
-        //console.log(now);
 
         console.log(this.state.date[0] + " - " + this.state.date[1]);
 
@@ -39,6 +41,15 @@ class RangeOverview extends React.Component {
     }
 
     fetchRangeData(one, two) {
+        if (one === null || two === null) {
+            return;
+        }
+
+        one = new Date(one);
+        two = new Date(two);
+
+        console.log(one + "," + two);
+
         const URL = "http://localhost:8080/api/LifeTime/getDataRange";
 
         /* Scheme of data being sent to backend */
@@ -68,7 +79,7 @@ class RangeOverview extends React.Component {
             /* Handles case when there's no data for the day */
             if (transformedRes.length === 0) {
                 that.setState({
-                    data: "No Data for Month",
+                    data: "No Data for this Range",
                     map: null
                 });
 
@@ -127,7 +138,6 @@ class RangeOverview extends React.Component {
     }
 
     componentDidMount() {
-
         let now = new Date();
 
         const firstDayofCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -175,12 +185,23 @@ class RangeOverview extends React.Component {
     render() {
         return (
             <div>
-                <DateRangePicker
-                    onChange={this.onChange}
-                    value={this.state.date}
-                />
+                <div className = "centered">
+                    <DateRangePicker
+                        startDateId="startDate"
+                        isOutsideRange= {() => false}
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                        onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate });
+                            this.fetchRangeData(startDate, endDate);}}
+                        focusedInput={this.state.focusedInput}
+                        onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
+                    />
+                </div>
+
                 <StackedAreaChart data={this.state.data}/>
-                {this.buildSwatches()}
+                <div className = "formatSwatches">
+                    {this.buildSwatches()}
+                </div>
             </div>
         )
     }

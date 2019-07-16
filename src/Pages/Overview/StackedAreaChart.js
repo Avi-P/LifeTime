@@ -61,23 +61,9 @@ class StackedAreaChart extends React.Component{
 
         let data = this.state.data;
 
-        // let data = [{date: new Date(this.state.data[0]["date"]), Sleep: 11, Work: 8, Class: 3, Food: 2, Friends: 0, Entertainment: 3, Exercise: 0},
-        //             {date: new Date(this.state.data[1]["date"]), Sleep: 11, Work: 9, Class: 1.5, Food: 2.5, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             {date: new Date(this.state.data[2]["date"]), Sleep: 11, Work: 8, Class: 3, Food: 2, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             {date: new Date(this.state.data[3]["date"]), Sleep: 11, Work: 9, Class: 1.5, Food: 2.5, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             {date: new Date(this.state.data[4]["date"]), Sleep: 11, Work: 8, Class: 3, Food: 2, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             {date: new Date(this.state.data[5]["date"]), Sleep: 0, Work: 6, Class: 1.5, Food: 1.5, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             //{date: new Date(2007, 4, 2), Seep: 6, Work: 8, Class: 2, Food: 4, Friends: 8, Entertainment: 4, Exercise: 1},
-        //             {date: new Date(this.state.data[6]["date"]), Sleep: 0, Work: 18, Class: 1.5, Food: 1.5, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             {date: new Date(this.state.data[7]["date"]), Sleep: 0, Work: 18, Class: 1.5, Food: 1.5, Friends: 0, Entertainment: 0, Exercise: 0},
-        //             {date: new Date(this.state.data[8]["date"]), Sleep: 0, Work: 18, Class: 1.5, Food: 4.1, Friends: 4, Entertainment: 0, Exercise: 0},
-        //            // {date: new Date(2007, 4, 6), Sleep: 3, Work: 1, Class: 5, Food: 5, Friends: 3, Entertainment: 0, Exercise: 1},
-        //             //{date: new Date(2007, 4, 7), Sleep: 5, Work: 5, Class: 3, Food: 4, Friends: 2, Entertainment: 1, Exercise: 1},
-        // ];
-
         let series = d3.stack().keys(Colors.getActivities())(data);
 
-        let margin = ({top: 20, right: 40, bottom: 30, left: 40});
+        let margin = ({top: 10, right: 40, bottom: 30, left: 40});
 
         let height = 300;
         let width = 900;
