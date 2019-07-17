@@ -31,11 +31,7 @@ class StackedAreaChart extends React.Component{
 
     /* Checks if previous props data is the same as the new data */
     shouldUpdate(prevProps, props) {
-        if (prevProps.data !== props.data) {
-            return true;
-        }
-
-        return false;
+        return prevProps.data !== props.data;
     }
 
     /* Called if state has to be updated due to new props */
@@ -60,8 +56,6 @@ class StackedAreaChart extends React.Component{
         if (this.state.data === "No Data for this Range") {
             return (<h1 className = "centered"> No Data for this Range </h1>)
         }
-
-        let activities = Colors.getActivities();
 
         /* Changes the date string into a date object */
         for (let i = 0; i < this.state.data.length; i++) {
@@ -143,7 +137,7 @@ class StackedAreaChart extends React.Component{
         let str = s.serializeToString(svg.node());
 
         /* Creates div element and sets the inner html to the chart */
-        return <div dangerouslySetInnerHTML={{__html: str}}></div>
+        return <div dangerouslySetInnerHTML={{__html: str}}/>
     }
 }
 

@@ -170,13 +170,12 @@ class RangeOverview extends React.Component {
 
         /* Makes the color swatches HTML code for all the activities */
         for (let i = 0; i < Colors.getActivities().length; i++) {
-            let color = "background:" + colorMap(Colors.getActivities()[i]) + ";";
 
             /* HTML code for the swatch created */
             let item = (
                 <div>
                     <div className="item">
-                        <div className="swatch" style={{background:  colorMap(Colors.getActivities()[i])}} ></div>
+                        <div className="swatch" style={{background: colorMap(Colors.getActivities()[i])}} />
 
                         {Colors.getActivities()[i] + " "
                         + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100).toFixed(2).toString().toString() + "%"}

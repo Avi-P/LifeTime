@@ -32,18 +32,14 @@ class DonutSummary extends React.Component{
 
     /* Called when new props are passed in */
     componentDidUpdate(prevProps) {
-        if (this.shouldUpdate(prevProps, this.props)) {
+        if (DonutSummary.shouldUpdate(prevProps, this.props)) {
            this.update();
         }
     }
 
     /* Checks if previous props data is the same as the new data */
-    shouldUpdate(prevProps, props) {
-        if (prevProps.data !== props.data) {
-            return true;
-        }
-
-        return false;
+    static shouldUpdate(prevProps, props) {
+        return prevProps.data !== props.data;
     }
 
     /* Called if state has to be updated due to new props */
@@ -54,7 +50,7 @@ class DonutSummary extends React.Component{
     }
 
     /* Computes mid angle */
-    midAngle(d){
+    static midAngle(d){
         return d.startAngle + (d.endAngle - d.startAngle)/2;
     }
 
@@ -64,7 +60,7 @@ class DonutSummary extends React.Component{
 
         /* Handles case where the data is empty */
         if (dataCleaned === null) {
-            return (<br></br>);
+            return (<br/>);
         }
 
         /* Used for colored slices of donut chart */
@@ -96,8 +92,8 @@ class DonutSummary extends React.Component{
                             let textPos = outerArc.centroid(d);
 
                             /* Computes position of slice and text */
-                            SVGpos[0] = this.state.radius * .90 * (this.midAngle(d) < Math.PI ? 1 : -1);
-                            textPos[0] = this.state.radius * (this.midAngle(d) < Math.PI ? 1 : -1);
+                            SVGpos[0] = this.state.radius * .90 * (DonutSummary.midAngle(d) < Math.PI ? 1 : -1);
+                            textPos[0] = this.state.radius * (DonutSummary.midAngle(d) < Math.PI ? 1 : -1);
 
                             let retString = arc.centroid(d)+ " " + outerArc.centroid(d) + " " + textPos;
 

@@ -11,14 +11,17 @@
     "d3-scale": "^3.0.0",
     "d3-shape": "^1.3.5",
     "json2csv": "^4.5.2",
+    "prismjs": "^1.16.0",
+    "rc-time-picker": "^3.7.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-calendar": "^2.19.0",
-    "react-date-picker": "^7.5.1",
+    "react-date-picker": "^7.7.0",
     "react-dates": "^20.2.5",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-simple-code-editor": "^0.9.13"
   },
   "scripts": {
     "start": "react-scripts start",

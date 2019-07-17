@@ -13,6 +13,7 @@ class NavBar extends React.Component {
                 <Nav className="mr-auto">
                     <Nav.Link href="/day-view">Day View</Nav.Link>
                     <Nav.Link href="/overview">Overview</Nav.Link>
+                    <Nav.Link href="/input">Input</Nav.Link>
                 </Nav>
             </Navbar>
         </>

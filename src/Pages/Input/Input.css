@@ -1,0 +1,54 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.add {
+    padding-left: 10pt
+}
+
+.timeInput {
+    display: flex;
+    flex-direction: row;
+}
+
+.timeInput h3 {
+    padding-right: 10pt
+}
+
+.finish{
+    padding-left: 10pt;
+}
+
+.activitySelect {
+    width: 100pt;
+}
+
+.rc-time-picker-input {
+    height: 38px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding-top: 10pt;
+    padding-bottom: 10pt;
+}
+
+.header h1{
+    padding-right: 10pt;
+}
+
+.container_editor_area {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.editor {
+    background: #f6f6f6;
+    height: 450px;
+    width: 800px;
+}

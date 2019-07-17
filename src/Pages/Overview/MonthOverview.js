@@ -186,7 +186,6 @@ class MonthOverview extends React.Component {
 
         /* Makes the color swatches HTML code for all the activities */
         for (let i = 0; i < Colors.getActivities().length; i++) {
-            let color = "background:" + colorMap(Colors.getActivities()[i]) + ";";
 
             /* HTML code for the swatch created */
             let item = (

@@ -105,16 +105,15 @@ class CalendarView extends React.Component {
         }
 
         /* Calls another class which handles making the chart */
-        let donut =  (<DonutSummary id="forRemove" data={this.state.data} date={this.state.date} width={this.state.width} height={this.state.height} />);
-
-        return donut;
+        return (<DonutSummary id="forRemove" data={this.state.data} date={this.state.date}
+                               width={this.state.width} height={this.state.height} />);
     }
 
     /* Generates the list of activity */
     generateList() {
         /* Handles case of no data */
         if (this.state.data == null || this.state.data === "No Data for Date") {
-            return <br></br>;
+            return <br/>;
         }
 
         let activity = new Map();
@@ -152,7 +151,7 @@ class CalendarView extends React.Component {
             //Formatted string to display
             let pushString = ""+ ((activity.get(max) / total) * 100).toFixed(2).toString() + "% - " + max;
 
-            list.push(<h5> {pushString} </h5>)
+            list.push(<h5> {pushString} </h5>);
 
             //Removes the key so it wont be found the next time we are finding the max
             activity.delete(max);
@@ -180,7 +179,7 @@ class CalendarView extends React.Component {
                                     <Calendar onChange={this.onChange} value={this.state.date}/>
                                 </div>
                                 {this.generateList()}
-                                <br></br>
+                                <br/>
                             </center>
                         </div>
 
