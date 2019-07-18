@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d50dc06-31f6-4123-ad9b-d55458e5dc18" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Pages/Input/Input.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pages/Input/Input.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/npm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Calendar/DonutSummary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/RangeOverview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Overview/StackedAreaChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Input/Input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Input/Input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Input/Input.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,14 +20,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Pages/Input/Input.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="120" column="26" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
+            <state relative-caret-position="2742">
+              <caret line="242" column="34" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="n#!!block;n#timeChangeOne#0;n#Input#0" />
-                <element signature="n#!!block;n#timeChangeOne#1;n#Input#0" />
                 <element signature="n#!!block;n#activityChange#0;n#Input#0" />
-                <element signature="n#!!block;n#submit#0;n#Input#0" />
+                <element signature="n#!!block;n#checkFirst#0;n#Input#0" />
               </folding>
             </state>
           </provider>
@@ -42,32 +34,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pages/Input/Input.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state relative-caret-position="2">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pages/Overview/Overview.js">
+        <entry file="file://$PROJECT_DIR$/server-src/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-978">
+              <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js">
+        <entry file="file://$PROJECT_DIR$/src/Components/DayInfoInterface.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="213" column="20" lean-forward="true" selection-start-line="213" selection-start-column="20" selection-end-line="220" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="44">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -89,6 +75,7 @@
       <find>//</find>
       <find>onchange</find>
       <find>SingleDate</find>
+      <find>format</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,7 +95,6 @@
         <option value="$PROJECT_DIR$/src/Components/DayInfoInterface.js" />
         <option value="$PROJECT_DIR$/src/Pages/Calendar/CalendarView.css" />
         <option value="$PROJECT_DIR$/src/Pages/Overview/Overview.js" />
-        <option value="$PROJECT_DIR$/server-src/server.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Components/NavBar.js" />
         <option value="$PROJECT_DIR$/src/Pages/Overview/MonthOverview.js" />
@@ -120,6 +106,7 @@
         <option value="$PROJECT_DIR$/node_modules/rc-time-picker/assets/index.css" />
         <option value="$PROJECT_DIR$/src/Pages/Input/Input.css" />
         <option value="$PROJECT_DIR$/src/Pages/Input/Input.js" />
+        <option value="$PROJECT_DIR$/server-src/server.js" />
       </list>
     </option>
   </component>
@@ -208,7 +195,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563346543984" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563414281170" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../video-picture-analysis" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -260,18 +247,18 @@
       <updated>1562035282196</updated>
       <workItem from="1562035283667" duration="50776000" />
       <workItem from="1562367112376" duration="39659000" />
-      <workItem from="1562630263861" duration="97543000" />
+      <workItem from="1562630263861" duration="111168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187978000" />
+    <option name="totallyTimeSpent" value="201603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19932432" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19932432" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -279,8 +266,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4992636" weight="0.27859238" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932432" weight="0.32991204" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49864864" visible="true" weight="0.18621701" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -289,7 +276,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50135136" side_tool="true" weight="0.29178885" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50135136" side_tool="true" weight="0.20381232" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49864864" weight="0.29178885" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -427,13 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server-src/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2156">
-          <caret line="98" column="56" selection-start-line="98" selection-start-column="56" selection-end-line="98" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -471,23 +451,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="153" column="47" selection-start-line="153" selection-start-column="47" selection-end-line="153" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/DayInfoInterface.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -560,23 +523,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/DayInfoInterface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pages/Calendar/CalendarView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="153" column="47" selection-start-line="153" selection-start-column="47" selection-end-line="153" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pages/Input/Input.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="2">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-src/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-978">
+          <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pages/Input/Input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="120" column="26" selection-start-line="120" selection-start-column="26" selection-end-line="120" selection-end-column="26" />
+        <state relative-caret-position="2742">
+          <caret line="242" column="34" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="n#!!block;n#timeChangeOne#0;n#Input#0" />
-            <element signature="n#!!block;n#timeChangeOne#1;n#Input#0" />
             <element signature="n#!!block;n#activityChange#0;n#Input#0" />
-            <element signature="n#!!block;n#submit#0;n#Input#0" />
+            <element signature="n#!!block;n#checkFirst#0;n#Input#0" />
           </folding>
         </state>
       </provider>

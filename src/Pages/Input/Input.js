@@ -8,12 +8,18 @@ import NavBar from "../../Components/NavBar"
 import Colors from "../../Components/Colors"
 
 import {SingleDatePicker} from "react-dates";
+
 import Editor from 'react-simple-code-editor';
 
 import "./Input.css"
 
+/* Used for default time */
+const moment = require("moment");
+
+/* Input Page */
 class Input extends React.Component {
 
+    /* Constructor */
     constructor(props) {
         super(props);
 
@@ -25,16 +31,18 @@ class Input extends React.Component {
         this.submit = this.submit.bind(this);
 
         this.state = {
-            date: null,
+            date: moment(),
             activity: "Sleep",
             timeOne: null,
             timeTwo: null,
             focusedInput: null,
             code: "",
-            firstAdd: false
+            firstAdd: false,
+            error: ""
         }
     }
 
+    /* Called when component renders. Sets text in textarea */
     componentDidMount() {
         let month = new Date().getMonth();
         let day = new Date().getDate();
@@ -42,57 +50,52 @@ class Input extends React.Component {
 
         this.setState({
             code: "{\n" +
-                "\t\"month\": " + month + ",\n" +
+                "\t\"month\": " + (month + 1) + ",\n" +
                 "\t\"day\" : " + day + ",\n" +
                 "\t\"year\" : " + year + ",\n" +
                 "\t\"activityMap\": \n\t[\n\t]\n}"
         })
     }
 
-    //Called when the date on the date selector changes
+    /* Called when date on selector changes */
     dateChange(date) {
         let newDate = new Date(date);
 
-        let month = newDate.getMonth();
-        let day = newDate.getDate();
-        let year = newDate.getFullYear();
-
-        /*
-        "{\n" +
-                "\t\"month\": " + month + ",\n" +
-                "\t\"day\" : " + day + ",\n" +
-                "\t\"year\" : " + year + ",\n"
-         */
-
         let code = "{\n" +
-            "\t\"month\": " + month + ",\n" +
-            "\t\"day\" : " + day + ",\n" +
-            "\t\"year\" : " + year + ",\n\t" + this.state.code.substring(this.state.code.search("\"activity"), this.state.code.length);
+            "\t\"month\": " + (newDate.getMonth() + 1) + ",\n" +
+            "\t\"day\" : " + newDate.getDate() + ",\n" +
+            "\t\"year\" : " + newDate.getFullYear() + ",\n\t" +
+            this.state.code.substring(this.state.code.search("\"activity"), this.state.code.length);
 
+        /* Updates JSON String with new date */
         this.setState({
             code: code,
             date: date
         });
     }
 
+    /* Called when time on first time picker changes */
     timeChangeOne(event) {
         this.setState({
             timeOne: new Date(event)
         })
     }
 
+    /* Called when time on second time picker changes */
     timeChangeTwo(event) {
         this.setState({
             timeTwo: new Date(event)
         })
     }
 
+    /* Called when activity picker changes */
     activityChange(event) {
         this.setState({
             activity: event.target.value
         })
     }
 
+    /* Used to add in a comma before it adds an activity to activitymap in the JSON String */
     checkFirst() {
         if(!this.state.firstAdd){
             this.setState({
@@ -106,31 +109,79 @@ class Input extends React.Component {
         }
     }
 
+    /* Takes text from textarea, and runs some checks on it to ensure it is proper.
+     * Then calls a method to insert into database
+     */
     submit() {
-        console.log(JSON.parse(this.state.code));
+        let obj = JSON.parse(this.state.code);
+
+        const {activityMap} = obj;
+
+        let total = 0;
+
+        /* Loops through activitymap */
+        for (let i = 0; i < activityMap.length; i++) {
+            /* Ensures all activities are valid */
+            if (!Colors.getActivities().includes(activityMap[i]["activity"])) {
+                this.setState({
+                    error: "Error: Unsupported Activity"
+                });
+
+                return;
+            }
+
+            /* Ensures none of the times are null */
+            if (activityMap[i]["time_out"] === null || activityMap[i]["time_in"] === null) {
+                this.setState({
+                    error: "Error: Null time included."
+                });
+
+                return;
+            }
+
+            total = total + (activityMap[i]["time_out"] - activityMap[i]["time_in"]);
+        }
+
+        /* Ensures that the total amount of time is 24 hours or one day */
+        if (total === 24) {
+            this.postDayData(obj);
+
+            this.setState({
+                error: "Recorded"
+            })
+        }
+        else {
+            this.setState({
+                error: "Error: Total time is not 24 hours."
+            })
+        }
     }
 
+    /* Adds */
     addToCode() {
-        console.log(this.state.activity + " " + this.state.timeOne + " " + this.state.timeTwo);
-
+        /* Handles null case */
         if (this.state.timeOne === null || this.state.timeTwo === null) {
             return;
         }
 
-        let secondDate;
+        let secondHour;
+        let secondMinute;
 
-        if (this.state.timeTwo.getHours() == 0 && this.state.timeTwo.getMinutes()/60 === 0 &&
-            this.state.timeOne.getHours() > this.state.timeTwo.getHours()) {
-            secondDate = new Date(12,1,2019,0,0)
+        /* Used to handle edge case of 0:00 representing 24:00 */
+        if (this.state.timeTwo.getHours() === 0 && this.state.timeTwo.getMinutes() === 0) {
+            secondHour = 24;
+            secondMinute = 0;
         }
         else {
-            secondDate = this.state.timeTwo;
+            secondHour = this.state.timeTwo.getHours();
+            secondMinute = this.state.timeTwo.getMinutes();
         }
 
+        /* Builds new JSON String */
         let code = this.state.code.substr(0, this.state.code.search("]") - 2) + this.checkFirst() +
                     "\t\t{\"activity\" : \"" + (this.state.activity) + "\"" +
                     ", \"time_in\" : " + (this.state.timeOne.getHours() +  (this.state.timeOne.getMinutes()/60)) +
-                    ", \"time_out\" : " + (secondDate.getHours() +  (secondDate.getMinutes()/60)) + "}" +
+                    ", \"time_out\" : " + (secondHour +  (secondMinute/60)) + "}" +
                     "\n\t]\n}";
 
         this.setState({
@@ -138,6 +189,23 @@ class Input extends React.Component {
         })
     }
 
+    /* POSTs to API to enter into DB */
+    postDayData(JSONObj) {
+        const URL = "http://localhost:8080/api/LifeTime/postInformation";
+
+        fetch(URL, {
+            credentials: 'same-origin',
+            method: 'POST',
+            body: JSON.stringify(JSONObj),
+            headers: {
+                "content-type" : "application/json"
+            }
+        }).then(function(res){
+            return res;
+        })
+    }
+
+    /* Generates list of activities for dropdown */
     generateList() {
         let data = [];
         let activities = Colors.getActivities();
@@ -149,6 +217,7 @@ class Input extends React.Component {
         return data;
     }
 
+    //Methods that will be used to get code that will displayed on the screen
     render() {
         const format = 'h:mm a';
 
@@ -200,7 +269,7 @@ class Input extends React.Component {
 
                     <div className = "add">
                         <Button variant="primary" size="md"  onClick = {this.addToCode}>
-                            Add More
+                            +
                         </Button>
                     </div>
                 </div>
@@ -224,6 +293,8 @@ class Input extends React.Component {
                     Submit
                 </Button>
             </div>
+
+            <h3> {this.state.error} </h3>
         </div>
     }
 }

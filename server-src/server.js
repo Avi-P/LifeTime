@@ -36,7 +36,6 @@ mongoose.connect(mongo_url, { useNewUrlParser: true }, function(err) {
 
 /* Post method to enter information into the db */
 app.post('/api/LifeTime/postInformation', async function(req, res, next) {
-
     let data = [];
 
     const {year, month, day, activityMap} = req.body;
