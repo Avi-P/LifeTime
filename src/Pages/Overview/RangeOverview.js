@@ -10,6 +10,8 @@ import Colors from "../../Components/Colors"
 
 import "./Overview.css";
 
+const moment = require("moment");
+
 /* Page for range of date overview */
 class RangeOverview extends React.Component {
     //Constructor
@@ -17,8 +19,8 @@ class RangeOverview extends React.Component {
         super(props);
 
         this.state = {
-            startDate: null,
-            endDate: null,
+            startDate: moment().startOf('month'),
+            endDate: moment().endOf('month'),
             focusedInput: null,
             data: null,
             map: new Map()
@@ -178,7 +180,9 @@ class RangeOverview extends React.Component {
                         <div className="swatch" style={{background: colorMap(Colors.getActivities()[i])}} />
 
                         {Colors.getActivities()[i] + " "
-                        + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100).toFixed(2).toString().toString() + "%"}
+                            + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100)
+                                                .toFixed(2)
+                                                .toString() + "%"}
                     </div>
                 </div>
             );
@@ -200,13 +204,14 @@ class RangeOverview extends React.Component {
                         startDate={this.state.startDate}
                         endDate={this.state.endDate}
                         onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate });
-                                                                    this.fetchRangeData(startDate, endDate);}}
+                                                                     this.fetchRangeData(startDate, endDate);}}
                         focusedInput={this.state.focusedInput}
                         onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
                     />
                 </div>
 
                 <StackedAreaChart data={this.state.data}/>
+
                 <div className = "formatSwatches">
                     {this.buildSwatches()}
                 </div>

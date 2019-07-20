@@ -1,7 +1,8 @@
 import React from "react"
-import StackedAreaChart from "./StackedAreaChart"
 
+import StackedAreaChart from "./StackedAreaChart"
 import Colors from "../../Components/Colors"
+
 import * as d3 from "d3";
 
 import 'react-dates/initialize';
@@ -9,6 +10,8 @@ import 'react-dates/lib/css/_datepicker.css';
 import {SingleDatePicker} from 'react-dates';
 
 import "./Overview.css";
+
+const moment = require("moment");
 
 //Overview for month by month basis
 class MonthOverview extends React.Component {
@@ -19,7 +22,7 @@ class MonthOverview extends React.Component {
         this.onChange = this.onChange.bind(this);
 
         this.state = {
-            date: null,
+            date: moment(),
             data: null,
             map: new Map(),
             focusedInput: null,
@@ -165,8 +168,6 @@ class MonthOverview extends React.Component {
 
         const lastDayofCurrentMonth = new Date(now.getFullYear(), now.getMonth()+1, 0);
 
-        console.log(firstDayofCurrentMonth + " - " + lastDayofCurrentMonth);
-
         this.fetchRangeData(firstDayofCurrentMonth, lastDayofCurrentMonth);
     }
 
@@ -181,8 +182,8 @@ class MonthOverview extends React.Component {
 
         /* Makes color map */
         let colorMap = d3.scaleOrdinal()
-            .domain(Colors.getActivities())
-            .range(Colors.getColors());
+                            .domain(Colors.getActivities())
+                            .range(Colors.getColors());
 
         /* Makes the color swatches HTML code for all the activities */
         for (let i = 0; i < Colors.getActivities().length; i++) {
@@ -194,13 +195,14 @@ class MonthOverview extends React.Component {
                         <div className="swatch" style={{background:  colorMap(Colors.getActivities()[i])}} ></div>
 
                         {Colors.getActivities()[i] + " "
-                            + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100).toFixed(2).toString().toString() + "%"}
+                            + ((this.state.map.get(Colors.getActivities()[i]) / this.state.map.get("Total")) * 100)
+                                            .toFixed(2)
+                                            .toString() + "%"}
                     </div>
                 </div>
             );
 
             data.push(item);
-
         }
 
         return data;
@@ -222,6 +224,7 @@ class MonthOverview extends React.Component {
                 </div>
 
                 <StackedAreaChart data={this.state.data}/>
+
                 <div className = "formatSwatches">
                     {this.buildSwatches()}
                 </div>

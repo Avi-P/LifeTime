@@ -88,11 +88,6 @@ class StackedAreaChart extends React.Component{
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y))
             .call(g => g.select(".domain").remove());
-            // .call(g => g.select(".tick:last-of-type text").clone()
-            //     .attr("x", 3)
-            //     .attr("text-anchor", "start")
-            //     .attr("font-weight", "bold")
-            //     .text("test" /*data.y*/));
 
         /* Sets the marks of the x scale */
         let xAxis = g => g

@@ -117,16 +117,13 @@ class CalendarView extends React.Component {
         }
 
         let activity = new Map();
-        let total = 0;
 
         /* Used to map all activities in the data and the total amount of time for them */
         for (let i = 0; i < this.state.data.length; i++) {
             if (activity.has(this.state.data[i]["activity"])) {
-                total = total + this.state.data[i]["time"];
                 activity.set(this.state.data[i]["activity"],  activity.get(this.state.data[i]["activity"]) + this.state.data[i]["time"]);
             }
             else {
-                total = total + this.state.data[i]["time"];
                 activity.set(this.state.data[i]["activity"],  this.state.data[i]["time"]);
             }
         }
@@ -149,7 +146,7 @@ class CalendarView extends React.Component {
             }
 
             //Formatted string to display
-            let pushString = ""+ ((activity.get(max) / total) * 100).toFixed(2).toString() + "% - " + max;
+            let pushString = ""+ ((activity.get(max) / 24) * 100).toFixed(2).toString() + "% - " + max;
 
             list.push(<h5> {pushString} </h5>);
 

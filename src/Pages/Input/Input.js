@@ -50,10 +50,10 @@ class Input extends React.Component {
 
         this.setState({
             code: "{\n" +
-                "\t\"month\": " + (month + 1) + ",\n" +
-                "\t\"day\" : " + day + ",\n" +
-                "\t\"year\" : " + year + ",\n" +
-                "\t\"activityMap\": \n\t[\n\t]\n}"
+                    "\t\"month\": " + (month + 1) + ",\n" +
+                    "\t\"day\" : " + day + ",\n" +
+                    "\t\"year\" : " + year + ",\n" +
+                    "\t\"activityMap\": \n\t[\n\t]\n}"
         })
     }
 
@@ -208,10 +208,9 @@ class Input extends React.Component {
     /* Generates list of activities for dropdown */
     generateList() {
         let data = [];
-        let activities = Colors.getActivities();
 
-        for (let i = 0; i < activities.length; i++) {
-            data.push(<option>{activities[i]}</option>);
+        for (let i = 0; i < Colors.getActivities().length; i++) {
+            data.push(<option>{Colors.getActivities()[i]}</option>);
         }
 
         return data;
