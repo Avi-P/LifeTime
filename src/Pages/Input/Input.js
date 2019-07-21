@@ -33,8 +33,8 @@ class Input extends React.Component {
         this.state = {
             date: moment(),
             activity: "Sleep",
-            timeOne: null,
-            timeTwo: null,
+            timeOne: new Date(),
+            timeTwo: new Date(),
             focusedInput: null,
             code: "",
             firstAdd: false,
@@ -44,16 +44,20 @@ class Input extends React.Component {
 
     /* Called when component renders. Sets text in textarea */
     componentDidMount() {
-        let month = new Date().getMonth();
-        let day = new Date().getDate();
-        let year = new Date().getFullYear();
+        let today = new Date();
+
+        today.setHours(0);
+        today.setMinutes(0);
 
         this.setState({
+            timeOne: today,
+            timeTwo: today,
             code: "{\n" +
-                    "\t\"month\": " + (month + 1) + ",\n" +
-                    "\t\"day\" : " + day + ",\n" +
-                    "\t\"year\" : " + year + ",\n" +
+                    "\t\"month\": " + (today.getMonth() + 1) + ",\n" +
+                    "\t\"day\" : " + today.getDate() + ",\n" +
+                    "\t\"year\" : " + today.getFullYear() + ",\n" +
                     "\t\"activityMap\": \n\t[\n\t]\n}"
+
         })
     }
 
@@ -185,7 +189,8 @@ class Input extends React.Component {
                     "\n\t]\n}";
 
         this.setState({
-            code: code
+            code: code,
+            timeOne: this.state.timeTwo
         })
     }
 
@@ -248,6 +253,7 @@ class Input extends React.Component {
                 <div className="timeInput">
                     <h3> Start-Time </h3>
                     <TimePicker
+                        value={moment(this.state.timeOne)}
                         className="picker"
                         showSecond={false}
                         format={format}
@@ -258,6 +264,7 @@ class Input extends React.Component {
 
                     <h3 className="finish"> Finish-Time </h3>
                     <TimePicker
+                        value={moment(this.state.timeTwo)}
                         className="picker"
                         showSecond={false}
                         format={format}
