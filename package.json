@@ -21,7 +21,7 @@
     "react-dates": "^20.2.5",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-simple-code-editor": "^0.9.13"
   },
   "scripts": {
